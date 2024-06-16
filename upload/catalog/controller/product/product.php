@@ -527,3 +527,15 @@ class Product extends \Opencart\System\Engine\Controller {
 		return null;
 	}
 }
+<?php
+class ControllerProductProduct extends Controller {
+    public function index() {
+        $this->load->language('product/product');
+
+        $this->load->model('catalog/product');
+
+        $data['products'] = $this->model_catalog_product->getProducts();
+
+        $this->response->setOutput($this->load->view('product/product', $data));
+    }
+}
